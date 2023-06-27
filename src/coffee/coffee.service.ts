@@ -34,12 +34,13 @@ export class CoffeeService {
   incrementCoffeeLikes(id: string) {
     return this.coffeeModel
       .findOneAndUpdate(
-        { _id: { $gt: new ObjectId(id) } },
+        { _id: new ObjectId(id) },
         {
           $inc: {
             likes: 1,
           },
         },
+        { new: true },
       )
       .exec();
   }

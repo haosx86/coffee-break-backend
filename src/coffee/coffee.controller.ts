@@ -12,8 +12,10 @@ export class CoffeeController {
   }
 
   @Get('like/:id')
-  getAllCoffee() {
-    return this.coffeeService.incrementCoffeeLikes();
+  getAllCoffee(
+    @Param(new ValidationPipe({ whitelist: true })) { id }: CoffeeDto,
+  ) {
+    return this.coffeeService.incrementCoffeeLikes(id);
   }
 
   @Get('after/:id')
