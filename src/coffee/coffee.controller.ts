@@ -1,4 +1,4 @@
-import { Controller, Get, Param, ValidationPipe } from '@nestjs/common';
+import { Controller, Get, Patch, Param, ValidationPipe } from '@nestjs/common';
 import { CoffeeService } from './coffee.service';
 import { CoffeeRequestDto } from './dto/coffeeRequest.dto';
 import { ApiOperation, ApiOkResponse } from '@nestjs/swagger';
@@ -17,7 +17,7 @@ export class CoffeeController {
     return this.coffeeService.getCoffee();
   }
 
-  @Get('like/:id')
+  @Patch('like/:id')
   @ApiOperation({ summary: 'Increment like counter of the coffee record' })
   @ApiOkResponse({
     type: CoffeeResponse,
