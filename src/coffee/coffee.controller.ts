@@ -22,7 +22,7 @@ export class CoffeeController {
   @ApiOkResponse({
     type: CoffeeResponse,
   })
-  getAllCoffee(
+  likeCoffee(
     @Param(new ValidationPipe({ whitelist: true })) { id }: CoffeeRequestDto,
   ) {
     return this.coffeeService.incrementCoffeeLikes(id);
